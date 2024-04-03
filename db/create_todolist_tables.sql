@@ -1,0 +1,33 @@
+-- Active: 1711861680364@@127.0.0.1@3306@test
+
+
+CREATE TABLE TODO_USER(
+    user_id INT(7) NOT NULL,
+    user_name CHARACTER(255) NOT NULL,
+    user_password CHARACTER(255) NOT NULL,
+    PRIMARY KEY (user_id)
+);
+
+
+SELECT *
+FROM `TODO_USER`;
+
+CREATE TABLE TODO_LIST(
+    todo_id INT(7) NOT NULL,
+    todo_name CHARACTER(255) NOT NULL,
+    PRIMARY KEY (todo_id),
+    todo_status INT(255) NOT NULL
+);
+
+ALTER TABLE `TODO_LIST`
+ADD FOREIGN KEY (todo_id) REFERENCES `TODO_USER`(user_id);
+
+
+SELECT *
+FROM `TODO_USER`;
+
+
+SELECT `TODO_LIST`.todo_name , TODO_USER.user_name
+FROM `TODO_LIST`
+INNER JOIN `TODO_USER` 
+ON `TODO_USER`.user_id = TODO_LIST.todo_id; 
