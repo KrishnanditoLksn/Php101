@@ -36,7 +36,7 @@ FROM `LINKIFY_USER_PRIVATE`;
 INSERT INTO `LINKIFY_USER_PRIVATE`
 VALUES(1,"abc",1);
 
-SELECT `LINKIFY_USER_PRIVATE`.user_id , linkify_user.id , linkify_user.first_name
+SELECT `LINKIFY_USER_PRIVATE`.password , linkify_user.id , linkify_user.first_name
 FROM `LINKIFY_USER_PRIVATE`
 INNER JOIN linkify_user ON 
 linkify_user.id=LINKIFY_USER_PRIVATE.user_id;
