@@ -1,17 +1,21 @@
 <?php
-
+$num = 2;
 hello();
-echo("\r\n");
+echo ("\r\n");
 welcome_user('DITOT');
 
-function hello(){
-    echo 'Welcome';
+function hello()
+{
+    global $num;
+    echo $num;
 }
 
-function add(){
+function add()
+{
     return  2 * 3;
 }
 
-function welcome_user($user){
-    echo 'Welcome' .$user;
+function welcome_user($user)
+{
+    echo 'Welcome' . $user;
 }
