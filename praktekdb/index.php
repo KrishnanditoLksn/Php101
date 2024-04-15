@@ -10,7 +10,6 @@ $select_query = mysqli_query($conn, $select_sql);
 $join_query = mysqli_query($conn, $join_sql);
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,18 +21,20 @@ $join_query = mysqli_query($conn, $join_sql);
 
 <body>
     <h1>List Mahasiswa Universitas Sanata Dharma</h1>
-    <!-- <table border="1"></table> -->
-
-    <?php while ($list_mhs = mysqli_fetch_assoc($select_query)) : ?>
+    <?php while ($list_mhs = mysqli_fetch_array($select_query)) : ?>
         <ul>
             <li>
                 <?= $list_mhs['nama'] ?>
+            </li>
+            <li>
+                <?= $list_mhs["id"] ?>
+                <a href="delete_mahasiswa.php?id=<?=$list_mhs["id"]?>">Hapus</a>
             </li>
         </ul>
     <?php endwhile; ?>
 
     <h2>Daftar mahasiswa di Universitas Sanata Dharma</h2>
-    <?php while ($list_mhs = mysqli_fetch_assoc($join_query)) : ?>
+    <?php while ($list_mhs = mysqli_fetch_array($join_query)) : ?>
         <ul>
             <li>
                 <?= $list_mhs['nama'] ?>
@@ -43,6 +44,7 @@ $join_query = mysqli_query($conn, $join_sql);
             </li>
         </ul>
     <?php endwhile; ?>
+    <a href="add_mahasiswa.php">Tambah Data Mahasiswa</a>
 </body>
 
 </html>
