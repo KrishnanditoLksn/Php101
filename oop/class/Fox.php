@@ -1,0 +1,4 @@
+<?
+class Fox extends Animal{
+    
+}
